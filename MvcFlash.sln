@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFlash.Core", "MvcFlash.Core\MvcFlash.Core.csproj", "{C2D5BE17-B1DF-423E-BC9E-2DD670468833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFlash.Tests", "MvcFlash.Tests\MvcFlash.Tests.csproj", "{77C36DB4-A5D8-448E-A1D4-EA8DE388EEAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcFlash.Sample", "MvcFlash.Sample\MvcFlash.Sample.csproj", "{1AF6D1E2-B545-4F27-9E54-258D9EFC6190}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2D5BE17-B1DF-423E-BC9E-2DD670468833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D5BE17-B1DF-423E-BC9E-2DD670468833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D5BE17-B1DF-423E-BC9E-2DD670468833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D5BE17-B1DF-423E-BC9E-2DD670468833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77C36DB4-A5D8-448E-A1D4-EA8DE388EEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77C36DB4-A5D8-448E-A1D4-EA8DE388EEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77C36DB4-A5D8-448E-A1D4-EA8DE388EEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77C36DB4-A5D8-448E-A1D4-EA8DE388EEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AF6D1E2-B545-4F27-9E54-258D9EFC6190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AF6D1E2-B545-4F27-9E54-258D9EFC6190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AF6D1E2-B545-4F27-9E54-258D9EFC6190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AF6D1E2-B545-4F27-9E54-258D9EFC6190}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
