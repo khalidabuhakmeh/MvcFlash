@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Flash.cs" />
+    <Compile Include="FlashConfiguration.cs" />
+    <Compile Include="Helpers\DynamicHelpers.cs" />
+    <Compile Include="Models\FlashContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\HttpContextFlashMessageService.cs" />
+    <Compile Include="Providers\IFlashMessagePusher.cs" />
+    <Compile Include="Providers\IFlashMessagePopper.cs" />
+    <Compile Include="Providers\IFlashMessageService.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

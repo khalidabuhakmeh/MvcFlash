@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "WithPartial";
+}
+
+<h2>WithPartial</h2>
+
+@Html.Flash((ctx) => Html.Partial("OtherFlash", ctx))

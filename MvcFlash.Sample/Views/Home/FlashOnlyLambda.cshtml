@@ -1,0 +1,7 @@
+﻿@{
+    ViewBag.Title = "FlashOnlyLambda";
+}
+
+<h2>FlashOnly with Lambda</h2>
+
+@Html.FlashOnly((x) => x.Type == "error")
