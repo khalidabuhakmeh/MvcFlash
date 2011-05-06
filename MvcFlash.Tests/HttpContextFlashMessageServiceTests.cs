@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using Moq;
 using MvcFlash.Core.Providers;
@@ -92,6 +93,36 @@ namespace MvcFlash.Tests
 
             Assert.IsNotNull(popped);
             Assert.IsTrue(popped.Count == 0);
+        }
+
+        [Test]
+        public void Can_Select_One_From_Other_Messages()
+        {
+            var mock = new Mock<HttpContextBase>();
+
+            mock.Setup(m => m.Items).Returns(new Dictionary<object, object>());
+
+            var message1 = new { type = "success", message = "Hooray!" };
+            var message2 = new { type = "success", message = "Hooray!" };
+            var message3 = new { type = "different", message = "Different!" };
+
+            var service = new HttpContextFlashMessageService(mock.Object);
+
+            service.Push(message1);
+            service.Push(message2);
+            service.Push(message3);
+
+            var popped = service.Select(x => x.type == "different");
+
+            Assert.IsNotNull(popped);
+            Assert.IsTrue(popped.Count == 1);
+            Assert.IsTrue(popped.First().type == "different");
+
+            var others = service.Pop();
+
+            Assert.IsNotNull(others);
+            Assert.IsTrue(others.Count == 2);
+            Assert.IsTrue(others.First().type == "success");
         }
     }
 }

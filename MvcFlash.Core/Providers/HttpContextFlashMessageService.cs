@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using MvcFlash.Core.Helpers;
 
@@ -36,13 +37,35 @@ namespace MvcFlash.Core.Providers
             }
         }
 
-        public ICollection<object> Pop()
+        public ICollection<dynamic> Pop()
         {
             lock(_lock) {
                 Messages = Messages ?? new List<dynamic>();
 
                 var temp = new List<dynamic>(Messages);
                 Messages.Clear();
+                return temp;
+            }
+        }
+
+        public ICollection<dynamic> Select(Func<dynamic, bool> where)
+        {
+            lock (_lock)
+            {
+                Messages = Messages ?? new List<dynamic>();
+
+                Func<dynamic, bool> filter = x => {
+                                     try {
+                                         return where.Invoke(x);
+                                     }
+                                     catch (Exception) {
+                                         return false;
+                                     }
+                                 };
+
+                var temp = new List<dynamic>(Messages.Where(filter).ToList());
+                Messages = Messages.Except(temp).ToList();
+
                 return temp;
             }
         }
