@@ -61,6 +61,22 @@ namespace MvcFlash.Core.Extensions
         /// <param name="filter">The filter.</param>
         /// <param name="templateName">Name of the template.</param>
         /// <returns></returns>
+        public static MvcHtmlString FlashSelect(this HtmlHelper helper, string filter, string templateName = "Flash")
+        {
+            var popper = FlashConfiguration.Popper;
+            if (popper == null) return MvcHtmlString.Empty;
+            var messages = popper.Select(x => x.Type == filter);
+
+            return Create(messages, helper, templateName);
+        }
+
+        /// <summary>
+        /// Flashes the selected messages and keeps the remaining elements in the messages stack.
+        /// </summary>
+        /// <param name="helper">The helper.</param>
+        /// <param name="filter">The filter.</param>
+        /// <param name="templateName">Name of the template.</param>
+        /// <returns></returns>
         public static MvcHtmlString FlashSelect(this HtmlHelper helper, Func<dynamic, bool> filter, string templateName = "Flash")
         {
             var popper = FlashConfiguration.Popper;

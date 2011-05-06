@@ -1,0 +1,50 @@
+h1. Flash Messaging for ASP .NET MVC 3
+
+Inspired by the "rails flash"
+
+<p> There are times where you would like to pass a message up to the view, 
+	but you aren't sure where the view will end up last. That is where MvcFlash comes in.
+	You push messages into MvcFlash and then call Flash() when you need
+	the images to appear. A super simple implementation that just works. 
+	Download the source and run the sample to see all the things you can do
+</p>
+
+h2. In The Controller
+<pre><code>
+	Flash.Notice("Hey, what's up?")
+	Flash.Error("oh no!");
+    Flash.Warning("sucks");
+ 	Flash.Success("WooHoo!");
+	Flash.Push(new {CrazyProperty = "I'm a mad man!"});
+</code></pre>	
+
+h2. In The View
+<pre><code>
+	// In The Razor View
+	
+	// Simple Flash
+	@Html.Flash()	// Flash everything, default template: "Flash"
+	@Html.Flash("MyOwnTemplate") // Flash evertying, custom template
+	@Html.Flash((ctx) => Html.Partial("Flash", ctx)) // Flash everything, lambda
+	
+	// Flash Only
+	@Html.FlashOnly("success") // pass in the type
+	@Html.FlashOnly(new [] {"success", "error"}) // pass in many types
+	@Html.FlashOnly(x => x.Type == "success" || x.Type == "error") // pass in a lambda
+	
+	// Flash Select
+	@Html.FlashSelect("success") // pass in the type, default template: "Flash"
+	@Html.FlashSelect(x => x.Type == "success") // pass in a lambda
+	@Html.FlashSelect("success", "template") // pass in the type filter, and the template name	
+	@Html.FlashSelect(x => x.Type == "success", (ctx) => Html.Partial("Flash", ctx) ) // pass in a lambda
+</code></pre>
+
+h2. The Template
+<pre><code>
+	@model MvcFlash.Core.Models.FlashContext
+	<div id="@Model.Message.Type-@Model.Index" class="@Model.Message.Type">@Model.Message.Text</div>
+</code></pre>
+
+h2. Contributors
+
+Written by "Khalid Abuhakmeh":http://github.com/khalidabuhakmeh
