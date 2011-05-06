@@ -1,9 +1,46 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Simple Flash";
 }
+<h1>
+    Simple Flash</h1>
+<p>
+    This is the simplest form of flash and is used the most. All you need to know is
+    that the default template Flash looks for is called "Flash" and that can be placed
+    in the Shared folder under views. In addition, that template takes in a FlashContext
+    object. You can see the structure of that object below.</p>
 
-<h1>Index</h1>
+<div class="section">
+    <h2>
+        In The Controller</h2>
+    <pre class="brush: csharp;">
+        public ActionResult Index()
+        {
+            Flash.Success("WooHoo!");
+            return View();
+        }
+    </pre>
+</div>
+<div class="section">
+    <h2>
+        In The View</h2>
+    <pre class="brush: csharp;">
+        @@Html.Flash()
+    </pre>
+</div>
+<div class="section">
+<h2>FlashContext</h2>
+<pre class="brush: csharp;">
+    public class FlashContext
+    {
+        public dynamic Message { get; set; }
+        public int Index { get; set; }
+        public int Total { get; set; }
+    }
+</pre>
+</div>
 
-@Html.FlashOnly(new[]{"success"})
-
-
+<div class="section">
+    <h2>
+        Result</h2>
+    @Html.Flash()
+</div>

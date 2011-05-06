@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "FlashSelect";
+}
+
+
+<h2>FlashSelect</h2>
+
+<h2>In The Controller</h2>
+<pre class="brush: csharp;">
+ 
+    public ActionResult FlashSelect()
+    {
+        Flash.Error("oh no!");
+        Flash.Warning("sucks");
+        Flash.Error("something terrible again");
+
+        Flash.Success("everything is fine and I live in a shell.");
+
+        return View();
+    }
+     
+</pre>
+</div>
+<div>
+    <h2>In The View</h2>
+    <pre class="brush: csharp;">
+        <div>
+            @@Html.FlashSelect(x => x.Type == "success")
+        </div>
+
+        <p>This is some content that I need to type here. This is not a message.</p>
+        <div>
+            @@Html.FlashSelect(x => x.Type == "error")
+        </div>
+        <p>This is some content that I need to type here. This is not a message.</p>
+            @@Html.Flash()
+
+             
+    </pre>
+</div>
+
+<div>
+    @Html.FlashSelect(x => x.Type == "success")
+</div>
+
+<p>This is some content that I need to type here. This is not a message.</p>
+<div>
+      @Html.FlashSelect(x => x.Type == "error")
+</div>
+<p>This is some content that I need to type here. This is not a message.</p>
+
+@Html.Flash()

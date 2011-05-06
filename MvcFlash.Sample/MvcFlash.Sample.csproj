@@ -66,6 +66,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\custom.png" />
+    <Content Include="Content\warning.png" />
+    <Content Include="Content\error.png" />
+    <Content Include="Content\notice.png" />
+    <Content Include="Content\success.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />
@@ -82,6 +87,55 @@
     <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\syntaxhighlighter\compass\config.rb" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shAutoloader.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushAS3.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushBash.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushCpp.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushCss.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushDiff.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushErlang.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushJava.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushJScript.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushPerl.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushPhp.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushPlain.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushPython.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushRuby.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushSass.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushScala.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushSql.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushVb.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shBrushXml.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shCore.js" />
+    <Content Include="Scripts\syntaxhighlighter\scripts\shLegacy.js" />
+    <Content Include="Scripts\syntaxhighlighter\src\shAutoloader.js" />
+    <Content Include="Scripts\syntaxhighlighter\src\shCore.js" />
+    <Content Include="Scripts\syntaxhighlighter\src\shLegacy.js" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCore.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreDefault.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreDjango.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreEclipse.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreEmacs.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreMidnight.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shCoreRDark.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeDefault.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeDjango.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeEclipse.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeEmacs.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeMidnight.css" />
+    <Content Include="Scripts\syntaxhighlighter\styles\shThemeRDark.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -138,6 +192,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\FlashOnlyLambda.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\FlashSelect.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\syntaxhighlighter\compass\shCore.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreDefault.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreDjango.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreEclipse.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreEmacs.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreFadeToGrey.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreMDUltra.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreMidnight.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shCoreRDark.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeDefault.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeDjango.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeEclipse.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeEmacs.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeFadeToGrey.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeMDUltra.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeMidnight.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\shThemeRDark.scss" />
+    <None Include="Scripts\syntaxhighlighter\compass\_theme_template.scss" />
+    <None Include="Scripts\syntaxhighlighter\LGPL-LICENSE" />
+    <None Include="Scripts\syntaxhighlighter\MIT-LICENSE" />
+    <Content Include="Views\Home\Custom.cshtml" />
+    <Content Include="Views\Shared\_Custom.cshtml" />
+    <Content Include="Views\Home\Template.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

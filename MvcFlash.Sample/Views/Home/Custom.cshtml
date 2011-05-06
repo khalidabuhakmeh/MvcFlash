@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Custom";
+}
+<h1>
+    Custom</h1>
+<p>
+    Maybe you don't like the Message we create by default and you want to create your
+    own messages. That's ok, you can always use push to pass dynamic models. Also note
+    that your anonymous objects will be converted into ExpandoObjects, the limitation
+    here is that you cannot nest anonymous objects.
+</p>
+<p>
+    Warning, you either have to know how to filter on this object, or accept it as your
+    default structure for all your messages. In other words, you must figure out how
+    to handle this in the view.</p>
+<div class="section">
+    <h2>
+        In The Controller</h2>
+    <pre class="brush: csharp;">
+        public ActionResult Custom()
+        {
+            Flash.Push(new {CrazyProperty = "this is a custom object"});
+            return View();
+        }
+    </pre>
+</div>
+<div class="section">
+    <h2>
+        In The View</h2>
+    <pre class="brush: csharp;">
+        @@Html.Flash("_Custom")
+    </pre>
+</div>
+<div class="section">
+    <h2>
+        Result</h2>
+    @Html.Flash("_Custom")
+</div>

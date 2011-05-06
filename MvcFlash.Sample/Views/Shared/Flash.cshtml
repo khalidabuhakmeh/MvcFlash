@@ -1,2 +1,3 @@
 ﻿@model MvcFlash.Core.Models.FlashContext
-<h2>@Model.Message.Text</h2>
+<div id="@Model.Message.Type-@Model.Index" class="@Model.Message.Type">@Model.Message.Text</div>
+        

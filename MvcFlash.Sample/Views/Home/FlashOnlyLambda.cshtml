@@ -4,4 +4,33 @@
 
 <h2>FlashOnly with Lambda</h2>
 
+<div>
+<h2>In The Controller</h2>
+<pre class="brush: csharp;">
+ 
+    public ActionResult FlashOnly()
+    {
+        Flash.Error("oh no!");
+        Flash.Warning("sucks");
+        Flash.Error("something terrible again");
+
+        Flash.Success("everything is fine and I live in a shell.");
+
+        return View();
+    }
+     
+</pre>
+</div>
+<div>
+    <h2>In The View</h2>
+    <pre class="brush: csharp;">
+ 
+        @@Html.FlashOnly((x) => x.Type == "error")
+ 
+    </pre>
+</div>
+
+<h2>Result</h2>
+
+
 @Html.FlashOnly((x) => x.Type == "error")

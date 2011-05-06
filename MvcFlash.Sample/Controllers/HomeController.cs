@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MvcFlash.Core;
 
@@ -43,5 +40,27 @@ namespace MvcFlash.Sample.Controllers
             return View();
         }
 
+        public ActionResult FlashSelect()
+        {
+            Flash.Error("oh no!");
+            Flash.Warning("sucks");
+            Flash.Error("something terrible again");
+
+            Flash.Success("everything is fine and I live in a shell.");
+
+            return View();
+        }
+
+        public ActionResult Custom()
+        {
+            Flash.Push(new {CrazyProperty = "this is a custom object"});
+
+            return View();
+        }
+
+        public ActionResult Template()
+        {
+            return View();
+        }
     }
 }

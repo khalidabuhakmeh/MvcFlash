@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Template";
+}
+<h2>
+    Templates</h2>
+<p>
+    All templates will take a FlashContext object, you can see the object definition
+    below.</p>
+<pre class="brush: csharp;">
+    public class FlashContext
+    {
+        public dynamic Message { get; set; }
+        public int Index { get; set; }
+        public int Total { get; set; }
+    }
+</pre>
+<p>
+    Templates are easy and simple, look at the one below and you'll see what I mean.</p>
+<pre class="brush: csharp;">
+    @@model MvcFlash.Core.Models.FlashContext
+    <div id="@@Model.Message.Type-@@Model.Index" class="@@Model.Message.Type">
+        @@Model.Message.Text</div>
+        
+</pre>
+<p>
+    So these are the basics, but what does a Message consist of? Well if you are using
+    the default messages that are created when you call Success,Error, Notice, or Warning
+    then they will look like this. <strong>**Note this is only a definition for a dynamic type, it does not exist
+    statically anywhere.</strong></p>
+<p><strong>If you use an anonymous object as the context, make sure there are NO nested anonymous objects or you will not be able to access them.</strong></p>
+<pre class="brush: csharp;">
+    public class Message {
+        public string Text {get;set;} // the textual message
+        public string Type {get;set;} // a string representation of the type i.e. "success"
+        public dynamic Context {get;set;} // you can pass in data here relevant to the message. Can be static or anonymous
+    }
+</pre>

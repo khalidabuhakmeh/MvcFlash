@@ -4,12 +4,19 @@
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/syntaxhighlighter/scripts/shCore.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/scripts/syntaxhighlighter/scripts/shBrushCSharp.js")"></script>
+	<link type="text/css" rel="stylesheet" href="@Url.Content("~/scripts/syntaxhighlighter/styles/shCoreDefault.css")"/>
+	<script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <ul>
     <li>@Html.ActionLink("Simple", "Index", "Home")</li>
+    <li>@Html.ActionLink("Template Information", "Template", "Home")</li>
     <li>@Html.ActionLink("Flash Only", "FlashOnly", "Home")</li>
     <li>@Html.ActionLink("Flash Only w/ Lambda", "FlashOnlyLambda", "Home")</li>
     <li>@Html.ActionLink("With Partial", "WithPartial", "Home")</li>
+    <li>@Html.ActionLink("Flash Select", "FlashSelect", "Home")</li>
+    <li>@Html.ActionLink("Flash Push (Custom)", "Custom", "Home")</li>
 </ul>
 <body>
     @RenderBody()
