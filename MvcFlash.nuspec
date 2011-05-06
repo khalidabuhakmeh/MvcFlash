@@ -2,7 +2,7 @@
 <package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>MvcFlash</id>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <authors>Khalid Abuhakmeh</authors>
     <owners>Khalid Abuhakmeh</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,9 +10,13 @@
     <licenseUrl>https://github.com/khalidabuhakmeh/MvcFlash/raw/master/MIT-LICENSE.txt</licenseUrl>
     <description>MvcFlash is a UI messaging library for ASP.NET MVC 3 in the same spirit as Rails flash.</description>
     <tags>UI, MVC, MVC3, Flash, Messages</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Web.WebPages.Razor" targetFramework="net40" />
+    </frameworkAssemblies>
   </metadata>
   <files>
     <file src="MvcFlash.Core/bin/Release/MvcFlash.Core.dll" target="lib" />
     <file src="MvcFlash.Sample/Views/Shared/Flash.cshtml" target="content/Views/Shared" />
+    <file src="web.config.transform" target="content" />
   </files>
 </package>
