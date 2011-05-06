@@ -2,11 +2,7 @@ h1. Flash Messaging for ASP .NET MVC 3
 
 Inspired by the "rails flash"
 
-<p> There are times where you would like to pass a message up to the view, 
-	but you aren't sure where the view will end up last. That is where MvcFlash comes in.
-	You push messages into MvcFlash and then call Flash() when you need
-	the images to appear. A super simple implementation that just works. 
-	Download the source and run the sample to see all the things you can do
+<p> There are times where you would like to pass a message up to the view, but you aren't sure where the redirects will end up last. That is where MvcFlash comes in. You push messages into MvcFlash and then call Flash() when you need	the messages to appear. A super simple implementation that just work.Download the source and run the sample to see all the things you can do
 </p>
 
 h2. In The Controller
