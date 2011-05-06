@@ -8,7 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <projectUrl>https://github.com/khalidabuhakmeh/MvcFlash</projectUrl>
     <licenseUrl>https://github.com/khalidabuhakmeh/MvcFlash/raw/master/MIT-LICENSE.txt</licenseUrl>
-    <description>MvcFlash is a UI messaging library for ASP.NET MVC 3 in the same spirit as Rails flash.</description>
+    <description>There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. That is where MvcFlash comes in. You push messages into MvcFlash and then call Flash() when you need the messages display. A super simple implementation that just works. Download the source, or go to the GitHub project page to see all the things you can do.</description>
     <tags>UI, MVC, MVC3, Flash, Messages</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.Web.WebPages.Razor" targetFramework="net40" />
