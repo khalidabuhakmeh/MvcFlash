@@ -11,38 +11,33 @@ Inspired by the "rails flash"
 
 h2. In The Controller
 <pre><code>
-	Flash.Notice("Hey, what's up?")
-	Flash.Error("oh no!");
-    Flash.Warning("sucks");
- 	Flash.Success("WooHoo!");
-	Flash.Push(new {CrazyProperty = "I'm a mad man!"});
+Flash.Notice("Hey, what's up?")
+Flash.Error("oh no!");
+Flash.Warning("sucks");
+Flash.Success("WooHoo!");
+Flash.Push(new {CrazyProperty = "I'm a mad man!"});
 </code></pre>	
 
 h2. In The View
-<pre><code>
-	// In The Razor View
-	
-	// Simple Flash
-	@Html.Flash()	// Flash everything, default template: "Flash"
-	@Html.Flash("MyOwnTemplate") // Flash evertying, custom template
-	@Html.Flash((ctx) => Html.Partial("Flash", ctx)) // Flash everything, lambda
-	
-	// Flash Only
-	@Html.FlashOnly("success") // pass in the type
-	@Html.FlashOnly(new [] {"success", "error"}) // pass in many types
-	@Html.FlashOnly(x => x.Type == "success" || x.Type == "error") // pass in a lambda
-	
-	// Flash Select
-	@Html.FlashSelect("success") // pass in the type, default template: "Flash"
-	@Html.FlashSelect(x => x.Type == "success") // pass in a lambda
-	@Html.FlashSelect("success", "template") // pass in the type filter, and the template name	
-	@Html.FlashSelect(x => x.Type == "success", (ctx) => Html.Partial("Flash", ctx) ) // pass in a lambda
+<pre><code>// In The Razor View
+// Simple Flash
+@Html.Flash()	// Flash everything, default template: "Flash"
+@Html.Flash("MyOwnTemplate") // Flash evertying, custom template
+@Html.Flash((ctx) => Html.Partial("Flash", ctx)) // Flash everything, lambda
+// Flash Only
+@Html.FlashOnly("success") // pass in the type
+@Html.FlashOnly(new [] {"success", "error"}) // pass in many types
+@Html.FlashOnly(x => x.Type == "success" || x.Type == "error") // pass in a lambda
+// Flash Select
+@Html.FlashSelect("success") // pass in the type, default template: "Flash"
+@Html.FlashSelect(x => x.Type == "success") // pass in a lambda
+@Html.FlashSelect("success", "template") // pass in the type filter, and the template name	
+@Html.FlashSelect(x => x.Type == "success", (ctx) => Html.Partial("Flash", ctx) ) // pass in a lambda
 </code></pre>
 
 h2. The Template
-<pre><code>
-	@model MvcFlash.Core.Models.FlashContext
-	<div id="@Model.Message.Type-@Model.Index" class="@Model.Message.Type">@Model.Message.Text</div>
+<pre><code>@model MvcFlash.Core.Models.FlashContext
+<div id="@Model.Message.Type-@Model.Index" class="@Model.Message.Type">@Model.Message.Text</div>
 </code></pre>
 
 h2. Contributors
