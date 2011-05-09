@@ -6,7 +6,7 @@ namespace MvcFlash.Core
 {
     public static class FlashConfiguration
     {
-        static Func<IFlashMessageService> _serviceMaker = () => new HttpContextFlashMessageService();
+        static Func<IFlashMessageService> _serviceMaker = () => new SessionFlashMessageService();
         private static Func<HttpContextBase> _contextMaker = () => new HttpContextWrapper(HttpContext.Current);
 
         public static void WithService(Func<IFlashMessageService> config) {

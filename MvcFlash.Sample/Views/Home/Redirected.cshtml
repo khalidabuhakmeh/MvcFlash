@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Redirected";
+}
+
+<h2>
+    Redirected</h2>
+<p>The magic of flash messaging is that it persists across an infinite amount of redirects.</p>
+<pre class="brush: csharp;">
+    public ActionResult TryRedirect()
+    {
+        Flash.Success("WooHoo");
+        return RedirectToAction("Redirected");
+    }
+
+    public ActionResult Redirected()
+    {
+        return View();
+    }
+</pre>
+
+@Html.Flash()

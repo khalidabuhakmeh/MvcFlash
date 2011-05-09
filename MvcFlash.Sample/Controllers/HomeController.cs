@@ -62,5 +62,16 @@ namespace MvcFlash.Sample.Controllers
         {
             return View();
         }
+
+        public ActionResult TryRedirect()
+        {
+            Flash.Success("WooHoo");
+            return RedirectToAction("Redirected");
+        }
+
+        public ActionResult Redirected()
+        {
+            return View();
+        }
     }
 }

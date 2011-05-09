@@ -6,20 +6,19 @@ using MvcFlash.Core.Helpers;
 
 namespace MvcFlash.Core.Providers
 {
-    [Obsolete("httpcontext.items are not transfered when a redirect occurs.")]
-    public class HttpContextFlashMessageService : IFlashMessageService
+    public class SessionFlashMessageService : IFlashMessageService
     {
         private readonly HttpContextBase _context;
-        private const string MessagesKey = "mvcflash.core.httpcontext.messages";
+        private const string MessagesKey = "mvcflash.core.session.messages";
         private readonly object _lock = new object();
 
         private List<object> Messages
         {
-            get { return (List<object>)_context.Items[MessagesKey]; }
-            set { _context.Items[MessagesKey] = value; }
+            get { return (List<object>)_context.Session[MessagesKey]; }
+            set { _context.Session[MessagesKey] = value; }
         }
 
-        public HttpContextFlashMessageService(HttpContextBase context = null)
+        public SessionFlashMessageService(HttpContextBase context = null)
         {
             try {
                 _context = context ?? new HttpContextWrapper(HttpContext.Current);
@@ -31,7 +30,8 @@ namespace MvcFlash.Core.Providers
 
         public void Push(object message)
         {
-            lock (_lock) {
+            lock (_lock)
+            {
                 Messages = Messages ?? new List<dynamic>();
                 var converted = DynamicHelpers.IfAnonymousCovertToExpando(message);
                 Messages.Add(converted);
@@ -40,7 +40,8 @@ namespace MvcFlash.Core.Providers
 
         public ICollection<dynamic> Pop()
         {
-            lock(_lock) {
+            lock (_lock)
+            {
                 Messages = Messages ?? new List<dynamic>();
 
                 var temp = new List<dynamic>(Messages);
@@ -55,14 +56,17 @@ namespace MvcFlash.Core.Providers
             {
                 Messages = Messages ?? new List<dynamic>();
 
-                Func<dynamic, bool> filter = x => {
-                                     try {
-                                         return where.Invoke(x);
-                                     }
-                                     catch (Exception) {
-                                         return false;
-                                     }
-                                 };
+                Func<dynamic, bool> filter = x =>
+                {
+                    try
+                    {
+                        return where.Invoke(x);
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
+                };
 
                 var temp = new List<dynamic>(Messages.Where(filter).ToList());
                 Messages = Messages.Except(temp).ToList();
@@ -73,7 +77,8 @@ namespace MvcFlash.Core.Providers
 
         public void Clear()
         {
-            lock(_lock) {
+            lock (_lock)
+            {
                 if (Messages != null)
                     Messages.Clear();
             }
