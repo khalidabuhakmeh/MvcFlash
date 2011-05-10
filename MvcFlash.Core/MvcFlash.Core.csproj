@@ -52,7 +52,7 @@
     <Compile Include="Providers\IFlashMessagePusher.cs" />
     <Compile Include="Providers\IFlashMessagePopper.cs" />
     <Compile Include="Providers\IFlashMessageService.cs" />
-    <Compile Include="Providers\TempDataFlashMessageService.cs" />
+    <Compile Include="Providers\SessionFlashMessageService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

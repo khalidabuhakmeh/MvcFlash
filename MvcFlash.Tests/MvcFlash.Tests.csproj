@@ -60,6 +60,7 @@
     <Compile Include="FlashTests.cs" />
     <Compile Include="HttpContextFlashMessageServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionFlashMessageServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
