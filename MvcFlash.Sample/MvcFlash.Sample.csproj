@@ -66,11 +66,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\custom.png" />
-    <Content Include="Content\warning.png" />
-    <Content Include="Content\error.png" />
-    <Content Include="Content\notice.png" />
-    <Content Include="Content\success.png" />
+    <Content Include="Content\flash\custom.png" />
+    <Content Include="Content\flash\style.css" />
+    <Content Include="Content\flash\warning.png" />
+    <Content Include="Content\flash\error.png" />
+    <Content Include="Content\flash\notice.png" />
+    <Content Include="Content\flash\success.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\jquery-ui.css" />

@@ -1,0 +1,37 @@
+﻿/* Styles for flashes 
+ *  http://css.dzone.com/news/css-message-boxes-different-me
+ * images : http://itweek.deviantart.com/art/Knob-Buttons-Toolbar-icons-73463960
+-----------------------------------------------------------*/
+.notice, .success, .warning, .error, .custom {
+    border: 1px solid;
+    margin: 10px 0px;
+    padding:15px 10px 15px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.notice {
+    color: #00529B;
+    background-color: #BDE5F8;
+    background-image: url('notice.png');
+}
+.success {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    background-image:url('success.png');
+}
+.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+    background-image: url('warning.png');
+}
+.error {
+    color: #D8000C;
+    background-color: #FFBABA;
+    background-image: url('error.png');
+}
+
+.custom {
+    color: #CCFFFF;
+    background-color: #999999;
+    background-image: url('custom.png');
+}
