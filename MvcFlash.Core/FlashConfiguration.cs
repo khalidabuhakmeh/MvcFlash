@@ -18,6 +18,12 @@ namespace MvcFlash.Core
             _contextMaker = context ?? _contextMaker;
         }
 
+		public static void Clear()
+		{
+			if (Popper != null)
+				Popper.Clear();	
+		}
+
         internal static IFlashMessagePusher Pusher {
             get { return _serviceMaker.Invoke(); }
         }

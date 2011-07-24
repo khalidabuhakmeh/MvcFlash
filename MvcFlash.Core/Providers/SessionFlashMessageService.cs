@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,9 +13,9 @@ namespace MvcFlash.Core.Providers
         private const string MessagesKey = "mvcflash.core.session.messages";
         private readonly object _lock = new object();
 
-        private List<object> Messages
+        private IDictionary<string,object> Messages
         {
-            get { return (List<object>)_context.Session[MessagesKey]; }
+            get { return (IDictionary<string, object>) _context.Session[MessagesKey]; }
             set { _context.Session[MessagesKey] = value; }
         }
 
@@ -28,13 +29,29 @@ namespace MvcFlash.Core.Providers
             }
         }
 
-        public void Push(object message)
+    	public void Push(object message)
+    	{
+    		Push(null, message);
+    	}
+
+    	public void Push(string key, object message)
         {
             lock (_lock)
             {
-                Messages = Messages ?? new List<dynamic>();
+            	Messages = Messages ?? new ConcurrentDictionary<string, dynamic>();
                 var converted = DynamicHelpers.IfAnonymousCovertToExpando(message);
-                Messages.Add(converted);
+
+				if (string.IsNullOrWhiteSpace(key)) {
+					key = Guid.NewGuid().ToString();
+				}
+                
+				// if key is specified, go ahead and overwrite the message
+				if (Messages.ContainsKey(key)) {
+					Messages[key] = converted;
+				} else {
+					Messages.Add(key, converted);	
+				}
+				
             }
         }
 
@@ -42,11 +59,11 @@ namespace MvcFlash.Core.Providers
         {
             lock (_lock)
             {
-                Messages = Messages ?? new List<dynamic>();
+                Messages = Messages ?? new ConcurrentDictionary<string, object>();
 
-                var temp = new List<dynamic>(Messages);
+                var temp = new ConcurrentDictionary<string, dynamic>(Messages);
                 Messages.Clear();
-                return temp;
+                return temp.Values;
             }
         }
 
@@ -54,7 +71,7 @@ namespace MvcFlash.Core.Providers
         {
             lock (_lock)
             {
-                Messages = Messages ?? new List<dynamic>();
+                Messages = Messages ?? new ConcurrentDictionary<string, object>();
 
                 Func<dynamic, bool> filter = x =>
                 {
@@ -68,14 +85,23 @@ namespace MvcFlash.Core.Providers
                     }
                 };
 
-                var temp = new List<dynamic>(Messages.Where(filter).ToList());
-                Messages = Messages.Except(temp).ToList();
+                var temp = new List<dynamic>(Messages.Values.Where(filter).ToList());
+            	var keysToRemove = Messages.Where(x => temp.Contains(x.Value)).Select(x => x.Key);
+
+            	foreach (var removed in keysToRemove) {
+            		Messages.Remove(removed);
+            	}
 
                 return temp;
             }
         }
 
-        public void Clear()
+    	public int Count()
+    	{
+    		return Messages.Count;
+    	}
+
+    	public void Clear()
         {
             lock (_lock)
             {

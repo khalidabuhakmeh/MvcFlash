@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Attribute";
+}
+<h1>
+    Attributes</h1>
+<p>This is a nice little trick using an attribute to flash a message. If someone has hit an action you know you want to display a message, but you don't want to noisy up the intentions of the action itself.</p>
+<p><strong>** Success, Error, Notice, and Warning are attributes but only take a message, and an optional unique key. **</strong>  </p>
+
+<p>There is also new AJAX Helper Attributes, that will clear the the messages if Request.IsAjaxRequest() comes back true. This might be helpful if you are using one action to return multiple result types.</p>
+
+<ul>
+	<li> <strong>MvcFlash.Core.Filters.ClearFlashAttribute</strong> (always clears flash messages)</li>
+	<li> <strong>MvcFlash.Core.Filters.ClearFlashOnAjaxAttribute</strong> (only clear flash when Request.IsAjaxRequest() is <strong>true</strong>)</li>
+	<li> <strong>MvcFlash.Core.Filters.[Success,Error,Warning,Notice]Attribute</strong> flash the corresponding message type</li>
+</ul>
+<div class="section">
+    <h2>
+        In The Controller</h2>
+    <pre class="brush: csharp;">
+        [Notice("hey what's up?")]
+		public ActionResult Attributes()
+		{
+			return View();
+		}
+    </pre>
+	<h2>What about a global filter?</h2>
+	<pre class="brush: csharp;">
+		public static void RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+			filters.Add(new NoticeAttribute("We love you loyal customer, here's a coupon 'LUV15' for all of you!"));
+			filters.Add(new ErrorAttribute("Someone has hacked the Gibson, please reset your passwords!") {Key = "test"});
+        }
+	</pre>
+</div>
+<div class="section">
+    <h2>
+        In The View</h2>
+    <pre class="brush: csharp;">
+
+        @@Html.Flash()
+
+    </pre>
+</div>
+
+<div class="section">
+    <h2>Result</h2>
+    @Html.Flash()
+</div>

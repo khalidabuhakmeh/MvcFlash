@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using MvcFlash.Core;
+using MvcFlash.Core.Filters;
 
 namespace MvcFlash.Sample.Controllers
 {
@@ -73,5 +74,20 @@ namespace MvcFlash.Sample.Controllers
         {
             return View();
         }
+
+		public ActionResult Unique()
+		{
+			for (int i = 0; i < 10; i++) {
+				Flash.Unique("success").Success("only display once");
+			}
+
+			return View();
+		}
+
+		[Notice("hey what's up?")]
+		public ActionResult Attributes()
+		{
+			return View();
+		}
     }
 }

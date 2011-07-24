@@ -127,18 +127,4 @@ namespace MvcFlash.Tests
             Assert.IsTrue(others.First().type == "success");
         }
     }
-
-    /// <summary>
-    /// HTTP session mockup.
-    /// </summary>
-    internal sealed class HttpSessionMock : HttpSessionStateBase
-    {
-        private readonly Dictionary<string, object> objects = new Dictionary<string, object>();
-
-        public override object this[string name]
-        {
-            get { return (objects.ContainsKey(name)) ? objects[name] : null; }
-            set { objects[name] = value; }
-        }
-    }
 }

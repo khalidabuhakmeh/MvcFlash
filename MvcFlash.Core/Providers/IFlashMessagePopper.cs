@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MvcFlash.Core.Providers
 {
+	/// <summary>
+	/// 
+	/// </summary>
     public interface IFlashMessagePopper
     {
         /// <summary>
@@ -17,6 +20,12 @@ namespace MvcFlash.Core.Providers
         /// <param name="where">The where.</param>
         /// <returns></returns>
         ICollection<dynamic> Select(Func<dynamic, bool> where);
+
+		/// <summary>
+		/// Counts this instance's number of messages.
+		/// </summary>
+		/// <returns></returns>
+    	int Count();
 
         /// <summary>
         /// Clears all the messages.

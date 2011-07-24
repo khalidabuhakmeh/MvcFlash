@@ -43,12 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Filters\ClearFlashAttribute.cs" />
+    <Compile Include="Filters\ClearFlashOnAjaxAttribute.cs" />
+    <Compile Include="Filters\WarningAttribute.cs" />
+    <Compile Include="Filters\ErrorAttribute.cs" />
+    <Compile Include="Filters\NoticeAttribute.cs" />
+    <Compile Include="Filters\SuccessAttribute.cs" />
     <Compile Include="Flash.cs" />
     <Compile Include="FlashConfiguration.cs" />
     <Compile Include="Helpers\DynamicHelpers.cs" />
     <Compile Include="Models\FlashContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\HttpContextFlashMessageService.cs" />
     <Compile Include="Providers\IFlashMessagePusher.cs" />
     <Compile Include="Providers\IFlashMessagePopper.cs" />
     <Compile Include="Providers\IFlashMessageService.cs" />
