@@ -17,39 +17,83 @@ namespace MvcFlash.Core {
 			Pusher = FlashConfiguration.Pusher;
 		}
 
-		public static int Count() {
-			return FlashConfiguration.Popper.Count();
+		/// <summary>
+		/// Return the current count of messages found in Flash.
+		/// </summary>
+		/// <returns></returns>
+		public static int Count {
+			get { return FlashConfiguration.Popper.Count(); }
 		}
 
+		/// <summary>
+		/// Pushes your own custom message into Flash.
+		/// </summary>
+		/// <param name="message">The message.</param>
 		public static void Push(object message) {
 			Push(null, message);
 		}
 
-		private static void Push(string key, object message) {
-			if (Pusher == null) {
-				lock (_lock) {
-					if (Pusher == null)
-						Pusher = FlashConfiguration.Pusher;
-				}
-			}
-
-			Pusher.Push(key,message);
-		}
-
+		/// <summary>
+		/// Pushes a success message into Flash.
+		/// </summary>
+		/// <param name="text">The text.</param>
+		/// <param name="context">The context.</param>
+		/// <returns></returns>
 		public static dynamic Success(string text, object context = null) {
 			return Create(text, context, "success");
 		}
 
+		/// <summary>
+		/// Pushes a notice message into Flash.
+		/// </summary>
+		/// <param name="text">The text.</param>
+		/// <param name="context">The context.</param>
+		/// <returns></returns>
 		public static dynamic Notice(string text, object context = null) {
 			return Create(text, context, "notice");
 		}
 
+		/// <summary>
+		/// Pushes a warning message into Flash.
+		/// </summary>
+		/// <param name="text">The text.</param>
+		/// <param name="context">The context.</param>
+		/// <returns></returns>
 		public static dynamic Warning(string text, object context = null) {
 			return Create(text, context, "warning");
 		}
 
+		/// <summary>
+		/// Pushes and error message into Flash.
+		/// </summary>
+		/// <param name="text">The text.</param>
+		/// <param name="context">The context.</param>
+		/// <returns></returns>
 		public static dynamic Error(string text, object context = null) {
 			return Create(text, context, "error");
+		}
+
+		/// <summary>
+		/// Makes sure that this message only ever comes up once, no matter how many times it gets pushed.
+		/// </summary>
+		/// <param name="key">The key.</param>
+		/// <returns></returns>
+		public static IFlashUnique Unique(string key) {
+			if (key == null)
+				throw new ArgumentNullException("key");
+
+			return new FlashUnique(key);
+		}
+
+		/// <summary>
+		/// Unique's available messages 
+		/// </summary>
+		public interface IFlashUnique {
+			void Push(object message);
+			dynamic Success(string text, object context = null);
+			dynamic Notice(string text, object context = null);
+			dynamic Warning(string text, object context = null);
+			dynamic Error(string text, object context = null);
 		}
 
 		private static dynamic Create(string message, object context, string type, string key = null) {
@@ -63,19 +107,15 @@ namespace MvcFlash.Core {
 			return flash;
 		}
 
-		public static IFlashUnique Unique(string key) {
-			if (key == null)
-				throw new ArgumentNullException("key");
+		private static void Push(string key, object message) {
+			if (Pusher == null) {
+				lock (_lock) {
+					if (Pusher == null)
+						Pusher = FlashConfiguration.Pusher;
+				}
+			}
 
-			return new FlashUnique(key);
-		}
-
-		public interface IFlashUnique {
-			void Push(object message);
-			dynamic Success(string text, object context = null);
-			dynamic Notice(string text, object context = null);
-			dynamic Warning(string text, object context = null);
-			dynamic Error(string text, object context = null);
+			Pusher.Push(key,message);
 		}
 
 		internal class FlashUnique : IFlashUnique {

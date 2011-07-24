@@ -79,7 +79,7 @@ namespace MvcFlash.Tests {
 				Flash.Unique("test").Error("this is a test");
 			}
 
-			Assert.AreEqual(1, Flash.Count());
+			Assert.AreEqual(1, Flash.Count );
 		}
 	}
 }
