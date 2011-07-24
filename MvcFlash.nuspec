@@ -1,23 +1,30 @@
-<?xml version="1.0"?>
-<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata schemaVersion="2">
     <id>MvcFlash</id>
-    <version>0.0.4</version>
+    <version>1.0.0</version>
     <authors>Khalid Abuhakmeh</authors>
     <owners>Khalid Abuhakmeh</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectUrl>https://github.com/khalidabuhakmeh/MvcFlash</projectUrl>
     <licenseUrl>https://github.com/khalidabuhakmeh/MvcFlash/raw/master/MIT-LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/khalidabuhakmeh/MvcFlash</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. That is where MvcFlash comes in. You push messages into MvcFlash and then call Flash() when you need the messages display. A super simple implementation that just works. Download the source, or go to the GitHub project page to see all the things you can do.</description>
+    <summary>There are times where you would like to pass a message up to the view, but you aren’t sure where the redirects will end up last. That is where MvcFlash comes in. You push messages into MvcFlash and th</summary>
+    <language>en-US</language>
     <tags>UI, MVC, MVC3, Flash, Messages</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System.Web.WebPages.Razor" targetFramework="net40" />
+      <frameworkAssembly assemblyName="System.Web.WebPages.Razor" targetFramework=".NETFramework4.0" />
     </frameworkAssemblies>
   </metadata>
   <files>
-    <file src="MvcFlash.Core/bin/Release/MvcFlash.Core.dll" target="lib" />
-    <file src="MvcFlash.Sample/Views/Shared/Flash.cshtml" target="content/Views/Shared" />
-    <file src="web.config.transform" target="content" />
-    <file src="MvcFlash.Sample/Content/flash/*" target="content/Content/flash" />
+    <file src="content\web.config.transform" target="content\web.config.transform" />
+    <file src="content/Content/flash\custom.png" target="content/Content/flash\custom.png" />
+    <file src="content/Content/flash\error.png" target="content/Content/flash\error.png" />
+    <file src="content/Content/flash\notice.png" target="content/Content/flash\notice.png" />
+    <file src="content/Content/flash\style.css" target="content/Content/flash\style.css" />
+    <file src="content/Content/flash\success.png" target="content/Content/flash\success.png" />
+    <file src="content/Content/flash\warning.png" target="content/Content/flash\warning.png" />
+    <file src="content/Views/Shared\Flash.cshtml" target="content/Views/Shared\Flash.cshtml" />
+    <file src="lib\MvcFlash.Core.dll" target="lib\MvcFlash.Core.dll" />
   </files>
 </package>
