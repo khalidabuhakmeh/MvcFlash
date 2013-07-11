@@ -7,6 +7,10 @@ Inspired by the "rails flash"
 
 h2. In The Controller
 <pre><code>
+//Be sure to include these
+using MvcFlash.Core;
+using MvcFlash.Core.Filters;
+//
 Flash.Notice("Hey, what's up?")
 Flash.Error("oh no!");
 Flash.Warning("sucks");
